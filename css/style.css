@@ -1,0 +1,38 @@
+
+html, body{
+    overflow-x: hidden;
+}
+
+/* Navbar */
+
+.bg-custom{
+    background-color: #212529;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+nav ul li a.addCustom{
+    fill: #E9ECEF;
+}
+
+
+
+.navbar-custom .navbar-brand {
+    color: #E9ECEF;
+  }
+  
+  .navbar-custom .navbar-brand:hover, .navbar-custom .navbar-brand:focus {
+    color: #E9ECEF;
+  }
+
+  /* Button */
+
+  .btn-custom{
+      padding: 10px 15px;
+  }
+
+ 
+
+  /* Sectio principal */
+  #principal{
+      background-color: #212529;
+  }
