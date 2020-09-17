@@ -1,6 +1,16 @@
 
 html, body{
     overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Section -  cores */
+#principal, #sobre, footer{
+    background-color: #212529;
+}
+
+#addWord{
+    background-color: #F0F0F7;
 }
 
 /* Navbar */
@@ -9,11 +19,6 @@ html, body{
     background-color: #212529;
     border-bottom: 1px solid #E9ECEF;
 }
-
-nav ul li a.addCustom{
-    fill: #E9ECEF;
-}
-
 
 
 .navbar-custom .navbar-brand {
@@ -24,15 +29,63 @@ nav ul li a.addCustom{
     color: #E9ECEF;
   }
 
+
   /* Button */
-
   .btn-custom{
-      padding: 10px 15px;
-  }
+    color: white;
+    border-radius: 8px;
+    text-transform: initial;
+    transition: background 0.4s, color 0.4s;
+    padding: 10px 20px;
+}
 
+.btn-newWhite{
+    border: 1px solid #E9ECEF;
+    color: #E9ECEF;
+}
+
+.btn-newWhite:hover{
+    background-color: #DEE2E6;
+    color: #212429;
+}
+
+.btn-newDark{
+    border: 1px solid #212529;
+    color: #212529;
+}
+
+.btn-newDark:hover{
+    background-color: #212529;
+    color: #E9ECEF;
+}
  
+/* Textos */
 
-  /* Sectio principal */
-  #principal{
-      background-color: #212529;
+.text-newWhite{
+    color: #E9ECEF;
+}
+
+  /* Footer */
+  footer{
+      border-top: 1px solid #E9ECEF;
   }
+
+.fa-facebook-square, .fa-github-square, .fa-instagram-square{
+    color: #E9ECEF;
+}
+
+.fa-instagram:hover{
+    color: green;
+}
+
+.fa-github:hover{
+    color: green;
+}
+
+.fa-facebook:hover{
+    color: green;
+}
+
+footer ul li{
+    margin: 0 5px;
+}
