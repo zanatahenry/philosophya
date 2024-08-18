@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Rubik } from "next/font/google";
 import "./globals.css";
 
 import { cn } from "@/lib/utils"
+import Footer from "@/components/Footer/Footer";
 
-const fontSans = Inter({ 
+const fontSans = Rubik({ 
   subsets: ["latin"],
   variable: "--font-sans"
 });
@@ -35,7 +36,13 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <div className="flex flex-col justify-between bg-neutral-950 h-svh md:h-screen">
+          <main className="flex flex-col flex-1">
+            {children}
+          </main>
+
+          <Footer />
+        </div>
       </body>
     </html>
   );
