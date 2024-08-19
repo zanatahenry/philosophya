@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 
 export default function LoadingText () {
   const randomLoadingMessages = [
@@ -18,6 +18,15 @@ export default function LoadingText () {
   const randomNumberByMessage = useMemo(() => {
     return Math.floor(Math.random() * (randomLoadingMessages.length - 1))
   }, [randomLoadingMessages])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log('aquiii')
+
+    }, 1500)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className='flex space-x-2 justify-center items-baseline'>
