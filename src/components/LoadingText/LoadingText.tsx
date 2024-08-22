@@ -1,7 +1,7 @@
 'use client'
 
 import { useRandomImage } from "@/hooks/useRandomImage"
-import { useEffect, useMemo } from "react"
+import { useLayoutEffect, useMemo } from "react"
 
 export default function LoadingText () {
   const randomLoadingMessages = [
@@ -22,7 +22,7 @@ export default function LoadingText () {
 
   const { generateAndRemoveImage } = useRandomImage()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const interval = setInterval(() => generateAndRemoveImage(), 1300)
 
     return () => clearInterval(interval)
