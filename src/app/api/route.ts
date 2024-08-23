@@ -1,29 +1,16 @@
-import OpenAI from "openai";
+import { GoogleGenerativeAI } from "@google/generative-ai"
+import { NextResponse } from "next/server"
 
-console.log('process.env.OPENIA_API_KEY', process.env.OPENIA_API_KEY)
-const openai = new OpenAI({
-  apiKey: process.env.OPENIA_API_KEY
-})
+const genAI = new GoogleGenerativeAI(String(process.env.NEXT_PUBLIC_GOOGLE_API_KEY))
 
-// export const runtime = "edge"
+export const runtime = "edge"
 
-export async function POST (req: Request) {
-  const {
-    messages,
-    model,
-    max_length: max_tokens,
-    top_p
-  } = await req.json()
+export async function GET (req: Request) {
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
 
-  const response = await openai.chat.completions.create({
-    model,
-    messages,
-    temperature: 0.7,
-    max_tokens,
-    top_p
-  })
+  const prompt = "Me informe uma frase filosófica para eu refletir profundamente, além disso, me informe o autor dela. Me mostre a frase da seguinte forma: frase - autor"
 
-  console.log(response, '<<<< epa')
+  const result = await model.generateContent(prompt)
 
-  return response
+  return NextResponse.json({data: result.response.text()}, { status: 200 })
 }

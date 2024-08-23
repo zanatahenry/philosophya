@@ -1,8 +1,8 @@
 import LoadingText from "@/components/LoadingText/LoadingText";
-import { useOpenai } from "@/hooks/useOpenAI";
+import { useGoogleAI } from "@/hooks/useGoogleAI";
 
 export default async function Home() {
-  const { handleSubmit } = useOpenai()
+  const { handleSubmit } = useGoogleAI()
   const data = await handleSubmit()
 
   return (
