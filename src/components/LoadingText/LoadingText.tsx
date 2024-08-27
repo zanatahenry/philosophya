@@ -1,6 +1,7 @@
 'use client'
 
-import { useMemo } from "react"
+import { useRandomImage } from "@/hooks/useRandomImage"
+import { useLayoutEffect, useMemo } from "react"
 
 export default function LoadingText () {
   const randomLoadingMessages = [
@@ -16,11 +17,19 @@ export default function LoadingText () {
   ]
 
   const randomNumberByMessage = useMemo(() => {
-    return Math.floor(Math.random() * (randomLoadingMessages.length - 1))
+    return Math.floor(Math.random() * randomLoadingMessages.length)
   }, [randomLoadingMessages])
 
+  const { generateAndRemoveImage } = useRandomImage()
+
+  useLayoutEffect(() => {
+    const interval = setInterval(() => generateAndRemoveImage(), 1300)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <div className='flex space-x-2 justify-center items-baseline'>
+    <div className='flex space-x-2 justify-center items-baseline' id="loader">
       <span className="text-neutral-50 text-3xl" suppressHydrationWarning>{randomLoadingMessages[randomNumberByMessage]}</span>
 
       <div className='h-2 w-2 bg-neutral-50 rounded-full animate-bounce [animation-delay:-0.3s]'></div>
