@@ -1,14 +1,14 @@
 import LoadingText from "@/components/LoadingText/LoadingText";
+import ShowPhrase from "@/components/ShowPhrase/ShowPhrase";
 import { useGoogleAI } from "@/hooks/useGoogleAI";
 
 export default async function Home() {
   const { handleSubmit } = useGoogleAI()
-  const data = await handleSubmit()
+  const response = await handleSubmit()
 
   return (
     <div className="md:overflow-hidden flex flex-col flex-1 justify-center">
-      <LoadingText />
-      {data && <h1>any thing</h1>}
+      {response ? <ShowPhrase author={response.author} phrase={response.phrase} /> : <LoadingText/>}
     </div>
   );
 }
