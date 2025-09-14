@@ -1,49 +1,22 @@
+import type React from "react";
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
-import { cn } from "@/lib/utils"
-import Footer from "@/components/Footer/Footer";
-
-const fontSans = Rubik({ 
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-sans"
+  variable: "--font-dm-sans"
 });
 
 export const metadata: Metadata = {
   title: "Philosophya",
-  description: "Frases inspiradoras de grandes filósofos para reflexão diária.",
+  description: "Build faster. Launch smarter. Scale infinitely."
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-br" suppressContentEditableWarning>
-      <head/>
-
-      <title>Philosophya</title>
-      <meta
-          name="description"
-          content="Receba uma frase diriamente de um filósofo aleatório!"
-        />
-
-      <body 
-        className={cn(
-          "min-h-screen bg-background font-sans antialised",
-          fontSans.variable
-        )}
-      >
-        <div className="flex flex-col justify-between bg-neutral-950 h-svh md:h-screen">
-          <main className="flex flex-col flex-1">
-            {children}
-          </main>
-
-          <Footer />
-        </div>
-      </body>
+    <html lang="pt-br">
+      <body className={`${dmSans.variable} font-sans antialiased`}>{children}</body>
     </html>
   );
 }

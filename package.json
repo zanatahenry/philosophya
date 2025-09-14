@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.17.1",
+    "@google/genai": "^1.19.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.427.0",
     "next": "14.2.5",
+    "ogl": "^1.0.11",
     "react": "^18",
     "react-dom": "^18",
     "shadcn-ui": "^0.8.0",
